@@ -8,6 +8,7 @@ Currently gets recipent list from a CSV file but later will get the info from a 
 - CSV (built in)
 - [Exchangelib](https://pypi.org/project/exchangelib/)
 - [Maskpass](https://pypi.org/project/maskpass/)
+- [DearPyGUI](https://pypi.org/project/dearpygui/)
 
 # Usage
 - Coming Soon...
