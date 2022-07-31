@@ -24,3 +24,7 @@ Currently gets recipent list from a CSV file but later will get the info from a 
   - [ ] Half decent GUI
   - [ ] Customise Subject
   - [ ] Customise Body
+
+# Credits
+- Me 
+- 04Roberto
