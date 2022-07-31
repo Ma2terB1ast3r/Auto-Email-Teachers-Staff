@@ -14,19 +14,33 @@ ExchangeUsername = ""
 ExchangePassword = ""
 
 # Setting Email Info
-EmailSubject = "Missed class: "
+EmailSubject = "Missed class: <class>"
 EmailBody = ''' 
-Hi <recipent>,
+Hi <recipient>,
 
-I am going to miss <subject> today as I am sick.
-Can you please send any work from <subject> that I need to catch up on.
+I am going to miss <class> today as I am sick.
+Can you please send any work from <class> that I need to catch up on.
 
 Thanks,
 <sender>            
 '''
-recipent = "Mr A"
+recipient = "Mr A"
 subject = "6FAIL9C"
-sender = "Myself"
+EmailSender = "Myself"
+
+results = []
+
+with open('TestTable.csv', 'r') as file:
+    reader = csv.reader(file)
+    for row in reader: # each row is a list
+        results.append(row)
+
+# Reading CSV
+# To be replaced with web page scraping
+RecipientEmail = results[0]
+RecipientTitle = results[1]
+RecipientName = results[2]
+RecipientClass = results[3]
 
 
 dpg.create_context()
@@ -71,35 +85,33 @@ def send_emails(sender, app_data):
     config = Configuration(server=str(ExchangeServer), credentials=credentials)
     UserAccount = Account(primary_smtp_address=ExchangeEmail, credentials=credentials, config=config)
 
-    # Reading CSV
-    # To be replaced with web page scraping
-    results = []
-
-    with open('TestTable.csv', 'r') as file:
-        reader = csv.reader(file)
-        for row in reader: # each row is a list
-            results.append(row)
-
-    R1 = results[0]
-    R2 = results[1]
-    R3 = results[2]
-
-    # Emails list of peoplea
-    # CSV Row 1 = repecient email
-    # CSV Row 2 = email subject
-    # CSV Row 3 = email body
-    for x in R1:
+    # Emails list of people
+    # CSV Row 1 = recipient class
+    # CSV Row 2 = recipient class
+    # CSV Row 3 = recipient class
+    # CSV Row 4 = recipient class
+    for x in range(len(RecipientEmail)):
+        global EmailSubject
+        EmailSubjectUnique = EmailSubject
+        EmailSubjectUnique = EmailSubjectUnique.replace("<recipient>", RecipientTitle[x] + " " + RecipientName[x])
+        EmailSubjectUnique = EmailSubjectUnique.replace("<class>", RecipientClass[x])
+        EmailSubjectUnique = EmailSubjectUnique.replace("<sender>", str(EmailSender))
+        global EmailBody
+        EmailBodyUnique = EmailBody
+        EmailBodyUnique = EmailBodyUnique.replace("<recipient>", RecipientTitle[x] + " " + RecipientName[x])
+        EmailBodyUnique = EmailBodyUnique.replace("<class>", RecipientClass[x])
+        EmailBodyUnique = EmailBodyUnique.replace("<sender>", str(EmailSender))
         m = Message(
         account=UserAccount,
-        subject=str(R2[R1.index(x)]),
-        body=str(R3[R1.index(x)]),
+        subject=str(EmailSubjectUnique),
+        body=str(EmailBodyUnique),
         to_recipients=[
-            Mailbox(email_address=str(R1[R1.index(x)])),
+            Mailbox(email_address=str(RecipientEmail[x])),
         ],
         )
         m.send()
-        print("Emailed " + str(R1[R1.index(x)]) + " " + str(R2[R1.index(x)]) + " " + str(R3[R1.index(x)]))
-        # Sends the same R2 and R3 if the email occurs multiple times
+        print("Emailed " + str(RecipientEmail[x]) + " " + str(RecipientTitle[x]) + " " + str(RecipientName[x]) + " " + str(RecipientClass[x]))
+        # Sends the same RecipientTitle and RecipientName if the email occurs multiple times
 
 
 def print_me(sender):
@@ -124,25 +136,52 @@ with dpg.window(tag="Primary Window"):
             dpg.add_button(label="Press Me", callback=print_me)
             dpg.add_color_picker(label="Color Me", callback=print_me)
 
+    # Table
+    with dpg.table(header_row=False, borders_innerH=True, borders_innerV=True, borders_outerH=True, borders_outerV=True, policy=dpg.mvTable_SizingFixedFit, resizable=True, no_host_extendX=True):
+        dpg.add_table_column(label="Recipient Email")
+        dpg.add_table_column(label="Recipient Title")
+        dpg.add_table_column(label="Recipient Name")
+        dpg.add_table_column(label="Recipient Class")
+
+        for i in range(len(RecipientEmail)):
+                with dpg.table_row():
+                    for j in range(4):
+                        if j == 0:
+                            dpg.add_text(RecipientTitle[i])
+                        elif j == 1:
+                            dpg.add_text(RecipientName[i])
+                        elif j == 2:
+                            dpg.add_text(RecipientClass[i])
+                        elif j == 3:
+                            dpg.add_text(RecipientEmail[i])
+                        else:
+                            continue
+
     # First Part
     dpg.add_text("Hello, world")
-    button1 = dpg.add_button(label="Press Me!", callback=button_cb)
-    dpg.add_text("Exchange mail server:")
-    dpg.add_input_text(tag="ti_server", label="",callback=ti_server_cb)
-    dpg.add_text("Exchange email:")
-    dpg.add_input_text(tag="ti_email", label="",callback=ti_email_cb)
-    dpg.add_text("Exchange username:")
-    dpg.add_input_text(tag="ti_username", label="",callback=ti_username_cb)
-    dpg.add_text("Exchange password:")
-    dpg.add_input_text(tag="ti_password", label="", password=True, callback=ti_password_cb)
-    dpg.add_text("Message Subject:")
-    dpg.add_input_text(tag="ti_subject", label="", default_value="", callback=ti_subject_cb)
-    dpg.add_text("Message Body:")
-    dpg.add_input_text(tag="ti_body", label="", default_value="", multiline=True, height=200, callback=ti_body_cb)
+    button1 = dpg.add_button(label="Press Me!", callback=send_emails)
+
+    # Message Contents
+    with dpg.tree_node(label="Message Contents", default_open=True):
+        dpg.add_text("Subject:")
+        dpg.add_input_text(tag="ti_subject", label="", default_value=EmailSubject, callback=ti_subject_cb)
+        dpg.add_text("Body:")
+        dpg.add_input_text(tag="ti_body", label="", default_value=EmailBody, multiline=True, height=200, width=500, tab_input=True,callback=ti_body_cb)
+
+    # Exchange Settings
+    with dpg.tree_node(label="Exchange Settings", default_open=True):
+        dpg.add_text("Exchange mail server:")
+        dpg.add_input_text(tag="ti_server", label="", default_value=ExchangeServer, hint="mail.<domain>", no_spaces=True, callback=ti_server_cb)
+        dpg.add_text("Exchange email:")
+        dpg.add_input_text(tag="ti_email", label="", default_value=ExchangeEmail, hint="<name>@<domain>.com", no_spaces=True, callback=ti_email_cb)
+        dpg.add_text("Exchange username:")
+        dpg.add_input_text(tag="ti_username", label="", default_value=ExchangeUsername, hint="Username", no_spaces=True, callback=ti_username_cb)
+        dpg.add_text("Exchange password:")
+        dpg.add_input_text(tag="ti_password", label="", default_value=ExchangePassword, hint="Password", no_spaces=True, password=True, callback=ti_password_cb)
 
 
-
-dpg.create_viewport(title='Auto Email Teachers', width=500, height=600)
+# DearPyGUI Create Window
+dpg.create_viewport(title='Auto Email Teachers', width=1000, height=1200)
 dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.set_primary_window("Primary Window", True)
@@ -152,9 +191,9 @@ dpg.destroy_context()
 
 
 
-#newemailbody = emailbody
-#newemailbody = newemailbody.replace("<recipent>", recipent)
-#newemailbody = newemailbody.replace("<subject>", subject)
-#newemailbody = newemailbody.replace("<sender>", sender)
+#EmailBodyUnique = EmailBody
+#EmailBodyUnique = EmailBodyUnique.replace("<recipient>", recipient)
+#EmailBodyUnique = EmailBodyUnique.replace("<class>", subject)
+#EmailBodyUnique = EmailBodyUnique.replace("<sender>", sender)
 
-#print(newemailbody)
+#print(EmailBodyUnique)
