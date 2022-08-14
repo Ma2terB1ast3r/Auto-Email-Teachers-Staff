@@ -1,0 +1,2 @@
+dearpygui>=1.6.2
+exchangelib>=4.7.4

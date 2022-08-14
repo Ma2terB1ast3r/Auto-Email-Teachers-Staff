@@ -3,7 +3,6 @@
 
 import dearpygui.dearpygui as dpg # GUI
 from exchangelib import Credentials, Account, Configuration, Message, Mailbox # MS Exchange Login
-import maskpass  # Password Hiding
 import csv # Temp for reading CSV
 from os.path import exists
 

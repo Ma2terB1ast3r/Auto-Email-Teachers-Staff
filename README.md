@@ -11,19 +11,27 @@ Currently gets recipent list from a CSV file but later will get the info from a 
 - [DearPyGUI](https://pypi.org/project/dearpygui/)
 
 # Usage
-- Coming Soon...
+## Installation
+1. Download repo
+2. Extract files
+3. Install [Python](https://www.python.org/downloads/)  
+```https://www.python.org/downloads/```
+4. Install required packages  
+```pip install -r requirements.txt```  
+5. coming soon...
+
 
 # To-do
 - [x] Send emails with Exchange
   - [x] Connect to MS Exchange email
   - [x] Customise emails based on recipent
-- [ ] Email list of people
+- [x] Email list of people
   - [x] Read emails from CSV (temp)
-  - [ ] Scrape class info from simon/LMS
-- [ ] Add GUI
-  - [ ] Half decent GUI
-  - [ ] Customise Subject
-  - [ ] Customise Body
+  - [ ] ~~Scrape class info from simon/LMS~~
+- [x] Add GUI
+  - [x] Half decent GUI
+  - [x] Customise Subject
+  - [x] Customise Body
 
 # Credits
 - Me 
