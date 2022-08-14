@@ -28,3 +28,4 @@ Currently gets recipent list from a CSV file but later will get the info from a 
 # Credits
 - Me 
 - 04Roberto
+- Chanetic
