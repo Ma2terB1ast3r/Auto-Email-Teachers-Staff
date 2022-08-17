@@ -8,7 +8,7 @@ body, html {
 }
 
 .parallaxTitle {
-  background-image: url("Laptop.jpg");
+  background-image: url("images/Laptop.jpg");
 
   height: 50%;
 
@@ -19,7 +19,7 @@ body, html {
 }
 
 .parallaxGrid1 {
-  background-image: url("Servers.jpg");
+  background-image: url("images/Servers.jpg");
 
   height: 50%;
 
@@ -30,7 +30,7 @@ body, html {
 }
 
 .parallaxGrid2 {
-  background-image: url("WebCode.jpg");
+  background-image: url("images/WebCode.jpg");
 
   height: 50%;
 
@@ -41,7 +41,7 @@ body, html {
 }
 
 .parallaxGrid3 {
-  background-image: url("Trees.jpg");
+  background-image: url("images/Trees.jpg");
 
   height: 50%;
 
@@ -53,32 +53,33 @@ body, html {
 
 h1{
   color: white;
-  font-family: sans-serif;
+  font-family: 'Alumni Sans Pinstripe', 'Alumni Sans', sans-serif;
   font-weight: 200;
-  font-size: 6vw;
+  font-size: 13vw;
   text-align: center;
 }
 
 h2{
   color: white;
-  font-family: sans-serif;
+  font-family: 'Alumni Sans Pinstripe', 'Alumni Sans', sans-serif;
   font-weight: lighter;
-  font-size: 3vw;
+  font-size: 5vw;
   text-align: center;
 }
 
 h3{
 color: white;
-font-family: sans-serif;
+font-family:  'Alumni Sans Pinstripe', 'Alumni Sans', sans-serif;
 font-weight: lighter;
-font-size: 2vw;
+font-size: 3vw;
 }
 
 h4{ 
 color: white;
 font-size: large;
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-family:  'Alumni Sans Pinstripe', 'Alumni Sans', sans-serif;
 font-weight: 250;
+font-size: 2vw;
 text-align: center;
 margin-left: 8vw;
 margin-right: 8vw;
@@ -87,8 +88,9 @@ margin-right: 8vw;
 p{ 
 color: white;
 font-size: large;
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-family: 'Alumni Sans Pinstripe', 'Alumni Sans', sans-serif;
 font-weight: 250;
+font-size: 2vw;
 text-align: center;
 margin-left: 2vw;
 margin-right: 2vw;
@@ -177,7 +179,7 @@ box-sizing: border-box;
 .column {
 float: left;
 width: 50%;
-height: 500px; /* Should be removed. Only for demonstration */
+height: 30vw;
 }
 
 .row:after {
