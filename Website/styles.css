@@ -193,7 +193,7 @@ box-sizing: border-box;
 .column {
   float: left;
   width: 50%;
-  height: 40%;
+  height: 30vw;
 }
 
 .columnSoft {
