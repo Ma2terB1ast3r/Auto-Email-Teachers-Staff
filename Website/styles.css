@@ -17,7 +17,7 @@ body, html {
 }
 
 .parallaxGrid1 {
-  background-image: url("images/Servers.jpg");
+  background-image: url("images/WebCode2.jpg");
   height: 50%;
   background-attachment: fixed;
   background-position: center;
@@ -26,7 +26,7 @@ body, html {
 }
 
 .parallaxGrid2 {
-  background-image: url("images/WebCode.jpg");
+  background-image: url("images/Servers2.jpg");
 
   height: 50%;
 
@@ -37,13 +37,13 @@ body, html {
 }
 
 .parallaxGrid3 {
-  background-image: url("images/Trees.jpg");
+  background-image: url("images/Laptop2.jpg");
 
   height: 50%;
 
   background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: cover;
 }
 
@@ -93,6 +93,15 @@ margin-right: 2vw;
 }
 
 code{
+  color: white;
+  font-size: large;
+  font-family: 'Exo 2', 'Alumni Sans Pinstripe', 'Alumni Sans', sans-serif;
+  font-weight: 250;
+  font-size: 1vw;
+  text-align: center;
+}
+
+a{
   color: white;
   font-size: large;
   font-family: 'Exo 2', 'Alumni Sans Pinstripe', 'Alumni Sans', sans-serif;
@@ -193,7 +202,7 @@ box-sizing: border-box;
 .column {
   float: left;
   width: 50%;
-  height: 30vw;
+  height: 35vw;
 }
 
 .columnSoft {
