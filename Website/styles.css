@@ -172,6 +172,15 @@ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 font-size: xx-large;
 }
 
+.logo-image{
+  text-align: right;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-110%, -50%);
+  color: white;
+  }
+
 * {
 box-sizing: border-box;
 }
