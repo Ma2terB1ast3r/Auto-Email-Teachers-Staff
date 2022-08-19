@@ -1,13 +1,10 @@
 # Auto Email Teachers When Your Away
 A simple program that emails teachers (or anyone else) based on what classes you have on the current day  
 Currently gets recipent list from a CSV file but later will get the info from a webpage and cross reference classes with teachers to determine recipents  
-- MS Exchange mail
-- Reads webpage
 
 # Required Libraries/Packages
 - CSV (built in)
 - [Exchangelib](https://pypi.org/project/exchangelib/)
-- [Maskpass](https://pypi.org/project/maskpass/)
 - [DearPyGUI](https://pypi.org/project/dearpygui/)
 
 # Website Link
@@ -23,7 +20,6 @@ Currently gets recipent list from a CSV file but later will get the info from a 
 ```pip install -r requirements.txt```  
 5. coming soon...
 
-
 # To-do
 - [x] Send emails with Exchange
   - [x] Connect to MS Exchange email
@@ -35,8 +31,14 @@ Currently gets recipent list from a CSV file but later will get the info from a 
   - [x] Half decent GUI
   - [x] Customise Subject
   - [x] Customise Body
+- [ ] Website
+  - [ ] Main Page
+  - [ ] Software Page
+  - [ ] Gannt Chart Page
+  - [ ] Flow Chart Page
+  - [ ] Evaluation Criteria Page
 
 # Credits
-- Me 
-- 04Roberto
-- Chanetic
+- Thomas
+- Daniel
+- Charlie
