@@ -16,18 +16,9 @@ body, html {
   background-size: cover;
 }
 
-.parallaxTitleSoftware {
-  background-image: url("images/Laptop.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: auto;
-}
-
 .parallaxGrid1 {
   background-image: url("images/Servers.jpg");
-
   height: 50%;
-
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -200,9 +191,21 @@ box-sizing: border-box;
 }
 
 .column {
-float: left;
-width: 50%;
-/*height: 30vw;*/
+  float: left;
+  width: 50%;
+  height: 40%;
+}
+
+.columnSoft {
+  float: left;
+  width: 50%;
+  height: auto;
+}
+
+.columnEval {
+  float: left;
+  width: 50%;
+  /*height: 50%;*/
 }
 
 .row:after {
