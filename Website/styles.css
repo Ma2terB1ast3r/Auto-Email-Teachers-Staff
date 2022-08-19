@@ -199,7 +199,7 @@ box-sizing: border-box;
 .columnSoft {
   float: left;
   width: 50%;
-  height: auto;
+  height: 30vw;
 }
 
 .columnEval {
