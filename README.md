@@ -18,7 +18,8 @@ Currently gets recipent list from a CSV file but later will get the info from a 
 ```https://www.python.org/downloads/```
 4. Install required packages  
 ```pip install -r requirements.txt```  
-5. coming soon...
+5. Open Python file  
+```AutoEmailTeachers.py```  
 
 # To-do
 - [x] Send emails with Exchange
@@ -31,12 +32,12 @@ Currently gets recipent list from a CSV file but later will get the info from a 
   - [x] Half decent GUI
   - [x] Customise Subject
   - [x] Customise Body
-- [ ] Website
-  - [ ] Main Page
-  - [ ] Software Page
-  - [ ] Gannt Chart Page
-  - [ ] Flow Chart Page
-  - [ ] Evaluation Criteria Page
+- [x] Website
+  - [x] Main Page
+  - [x] Software Page
+  - [x] Gannt Chart Page
+  - [x] Flow Chart Page
+  - [x] Evaluation Criteria Page
 
 # Credits
 - Thomas
