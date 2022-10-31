@@ -1,0 +1,56 @@
+body{
+    background: rgb(13, 18, 27);
+    height: 100vh;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.message {
+    text-align: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 550px;
+}
+
+.background {
+    background-image: url("assets/ServersEdit1.png");
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.titletext{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1{
+    color: white;
+    font-family: 'Alumni Sans Pinstripe', 'Alumni Sans', sans-serif;
+    font-weight: 200;
+    font-size: 75px;
+    padding-left: 16px;
+    text-align: left;
+    margin: auto;
+}
+
+h2{
+    color: white;
+    font-family: 'Alumni Sans Pinstripe', 'Alumni Sans', sans-serif;
+    font-weight: lighter;
+    font-size: 32px;
+    padding-left: 16px;
+    text-align: left;
+}
